@@ -8,7 +8,7 @@ public class Potion : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            print("PLAYER");
+            Destroy(this.gameObject);
         }
     }
 }
