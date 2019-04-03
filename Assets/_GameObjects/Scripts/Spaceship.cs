@@ -8,7 +8,7 @@ public class Spaceship : MonoBehaviour
     public GameObject canvas;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !other.gameObject.GetComponent<Player>().HasPotion())
         {
             canvas.SetActive(true);
         }

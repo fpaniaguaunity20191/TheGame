@@ -22,12 +22,14 @@ public class Player : MonoBehaviour
     private float x;
     private Rigidbody myRB;
     private Animator myAnimator;
+    private bool hasPotion = false;
+    //METHODS
     private void Awake()
     {
         myRB = GetComponent<Rigidbody>();
         myAnimator = GetComponent<Animator>();
     }
-    void Update()
+    private void Update()
     {
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
@@ -115,5 +117,13 @@ public class Player : MonoBehaviour
     public void StopFire()
     {
         estado = Estado.Ilde;
+    }
+    public void SetPotion()
+    {
+        hasPotion = true;
+    }
+    public bool HasPotion()
+    {
+        return hasPotion;
     }
 }
