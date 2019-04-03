@@ -25,7 +25,7 @@ public class CameraScript : MonoBehaviour
         sqrDistanceToPlayer = GetDistance();
         if (sqrDistanceToPlayer > sqrMaxDistanceToPlayer)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            transform.Translate(Vector3.forward * Time.deltaTime * speed * (sqrDistanceToPlayer/sqrMaxDistanceToPlayer));
             if (transform.position.y < yPos)
             {
                 transform.position = new Vector3(transform.position.x, yPos, transform.position.z);

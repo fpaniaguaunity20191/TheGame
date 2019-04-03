@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public Estado estado = Estado.Ilde;
     public float speed;
     public float speedRunning;
+    public float angularSpeed;
     public Gun gun;
     public GameManager gm;
     //PRIVATE
@@ -100,7 +101,7 @@ public class Player : MonoBehaviour
     }
     private void Turn()
     {
-        transform.Rotate(0, x, 0);
+        transform.Rotate(0, x * angularSpeed, 0);
     }
     private void StartFire()
     {
