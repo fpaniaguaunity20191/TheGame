@@ -26,6 +26,5 @@ public class GameManager : MonoBehaviour
     {
         this.points += _points;
         txtPoints.text = this.points.ToString();
-        SceneManager.UnloadSceneAsync("CanvasScene");
     }
 }

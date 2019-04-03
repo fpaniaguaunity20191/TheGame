@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
                 StopRun();
             }
         }
-        if (estado==Estado.Ilde && Input.GetButtonDown("Fire1"))
+        if (estado != Estado.Shooting && Input.GetButtonDown("Fire1"))
         {
             StartFire();
         }
