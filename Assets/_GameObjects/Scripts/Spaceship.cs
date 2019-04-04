@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Spaceship : MonoBehaviour
 {
     public GameObject canvas;
+    //public PlayableDirector pd;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && !other.gameObject.GetComponent<Player>().HasPotion())
