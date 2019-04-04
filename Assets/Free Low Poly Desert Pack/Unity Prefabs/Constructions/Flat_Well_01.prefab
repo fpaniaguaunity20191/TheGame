@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 456462}
   - component: {fileID: 3396356}
   - component: {fileID: 2317480}
+  - component: {fileID: 5540023152341237576}
   m_Layer: 0
   m_Name: Flat_Well_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &456462
 Transform:
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5540023152341237576
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133420}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4020865, y: 2.7800164, z: 2.3304365}
+  m_Center: {x: 0.035825014, y: 1.3900082, z: 0}

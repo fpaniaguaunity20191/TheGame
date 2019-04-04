@@ -22,18 +22,24 @@ public class Player : MonoBehaviour
     private float x;
     private Rigidbody myRB;
     private Animator myAnimator;
+    private AudioSource audioSource;
     private bool hasPotion = false;
     //METHODS
     private void Awake()
     {
         myRB = GetComponent<Rigidbody>();
         myAnimator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     private void Update()
     {
+        if (estado == Estado.Shooting)
+        {
+            return;
+        }
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetButton("Button 4"))
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || Input.GetButton("Button 4"))
         {
             RunForward();
         } else
@@ -43,13 +49,17 @@ public class Player : MonoBehaviour
                 StopRun();
             }
         }
-        if (estado != Estado.Shooting && Input.GetButtonDown("Fire1"))
+        if (estado != Estado.Shooting && (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space)))
         {
             StartFire();
         }
     }
     private void FixedUpdate()
     {
+        if (estado == Estado.Shooting)
+        {
+            return;
+        }
         if (y > 0)
         {
             MoveForward();
@@ -65,6 +75,7 @@ public class Player : MonoBehaviour
     }
     private void StopMoving()
     {
+        audioSource.Stop();
         myAnimator.SetBool(ANIM_PARAM_WALKING, false);
         myAnimator.SetBool(ANIM_PARAM_RUNNING, false);
         estado = Estado.Ilde;
@@ -75,6 +86,7 @@ public class Player : MonoBehaviour
         {
             myAnimator.SetBool(ANIM_PARAM_WALKING, true);
             estado = Estado.Walking;
+            audioSource.Play();
         } else if (estado==Estado.Walking)
         {
             myRB.MovePosition(transform.position + transform.forward * Time.deltaTime * speed);

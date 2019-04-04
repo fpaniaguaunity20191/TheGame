@@ -5,10 +5,16 @@ using UnityEngine;
 public class Potion : MonoBehaviour
 {
     public GameObject inventory;
+    AudioSource audioSource;
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            audioSource.Play();
             transform.SetParent(inventory.transform);
             transform.localScale = new Vector3(1, 1, 1);
             transform.localRotation= Quaternion.Euler(0,0,0);

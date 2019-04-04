@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         myRB = GetComponent<Rigidbody>();
-        timeToChangeState = Random.RandomRange(MIN_TIME_TO_CHANGE, MAX_TIME_TO_CHANGE);
+        timeToChangeState = Random.Range(MIN_TIME_TO_CHANGE, MAX_TIME_TO_CHANGE);
     }
     void Start()
     {

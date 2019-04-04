@@ -2,16 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 
 public class Spaceship : MonoBehaviour
 {
     public GameObject canvas;
-    //public PlayableDirector pd;
+    public PlayableDirector pd;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && !other.gameObject.GetComponent<Player>().HasPotion())
+        if (other.gameObject.CompareTag("Player"))
         {
-            canvas.SetActive(true);
+            if (!other.gameObject.GetComponent<Player>().HasPotion())
+            {
+                canvas.SetActive(true);
+            }
+            else
+            {
+                pd.Play();
+            }
         }
     }
     private void OnTriggerExit(Collider other)
