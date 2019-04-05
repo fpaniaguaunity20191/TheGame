@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         SceneManager.LoadScene("CanvasScene", LoadSceneMode.Additive);
+        points = PlayerPrefs.GetInt("Puntuacion", 0);
     }
     private void Start()
     {
@@ -26,5 +27,7 @@ public class GameManager : MonoBehaviour
     {
         this.points += _points;
         txtPoints.text = this.points.ToString();
+        PlayerPrefs.SetInt("Puntuacion", this.points);
+        PlayerPrefs.Save();
     }
 }
