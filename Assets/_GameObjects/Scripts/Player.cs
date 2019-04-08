@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
         myRB = GetComponent<Rigidbody>();
         myAnimator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        LoadPosition();
     }
     private void Update()
     {
@@ -137,5 +138,12 @@ public class Player : MonoBehaviour
     public bool HasPotion()
     {
         return hasPotion;
+    }
+    public void LoadPosition()
+    {
+        float x = PlayerPrefs.GetFloat("xPlayer", -29.33f);
+        float y = PlayerPrefs.GetFloat("yPlayer", 10);
+        float z = PlayerPrefs.GetFloat("zPlayer", -44.21f);
+        transform.position = new Vector3(x, y, z);
     }
 }
